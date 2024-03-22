@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:rdsharing/opening.dart';
 
 void main() async{
 
@@ -27,28 +28,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Homepage(),
-    );
-  }
-}
-
-class Homepage extends StatelessWidget {
-  const Homepage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: ElevatedButton(
-          onPressed: () {
-            FirebaseAuth.instance.createUserWithEmailAndPassword(
-                email: 'sombit@gmail.com', password: '9977880');
-          },
-          child: const Text('press'),
-        ),
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: Colors.black,
       ),
+      debugShowCheckedModeBanner: false,
+      home: SignUpScreen(),
     );
   }
 }
